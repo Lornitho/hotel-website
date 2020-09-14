@@ -7,16 +7,29 @@
 <section id="page-title">
     <div class="container">
         <div class="page-title">
-            <h1>Lists & Bullet lists</h1>
-            <span>Inspiration comes of working every day.</span>
+            <h1>Chambres</h1>
+            <span>Decouvrez la liste des chambres disponibles</span>
         </div>
         <div class="breadcrumb">
-            <ul>
-                <li><a href="#">Home</a> </li>
-                <li><a href="#">Shortcodes</a> </li>
-                <li class="active"><a href="#">Lists & Bullet lists</a> </li>
-            </ul>
         </div>
     </div>
 </section>
+    <section>
+        <div class="container">
+            <div class="text-center m-b-40">
+                <h2 class="text-medium m-t-0">Hotel Rooms</h2>
+                <div class="seperator"><i class="fa fa-dot-circle-o"></i></div>
+                <p class="lead">Mhôtel est un hôtel de vacances paisible et bien équipé. Grâce à la situation favorable à proximité de la plage, des bois et du centre du village, c'est un hôtel idéal, où vous vous sentirez certainement chez vous.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <img src="{{'../images/rooms/'~room.image }}" alt="{{ room.name }}" class="w-100">
+                </div>
+                <div class="col-lg-5">
+                    <h2>{{ room.name }}</h2>
+                    <p>{{ room.description }}</p>
+                    <p>{{ room.price }}</p>
+                    <a href="{{ path('reserver',{'id':room.id}) }}" class="btn btn-lg"> Reserver</a>
+                </div>
+            </div>
 {% endblock %}

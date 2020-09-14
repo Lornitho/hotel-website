@@ -19,9 +19,14 @@
                      <nav>
                          <ul>
                              <li><a href="{{ path('front_index') }}">Accueil</a></li>
-                             <li><a href="{{ path('front_index') }}">Chambres</a></li>
-                             <li><a href="{{ path('front_index') }}">A propos</a></li>
-                             <li><a href="{{ path('front_index') }}">Contact</a></li>
+                             <li><a href="{{ path('rooms') }}">Chambres</a></li>
+                             <li><a href="{{ path('about') }}">A propos</a></li>
+                             {% if app.user %}
+                                 <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                             {% else %}
+                                 <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                                 <li><a href="{{ path('app_login') }}">inscription</a></li>
+                             {% endif %}
                          </ul>
                      </nav>
                  </div>

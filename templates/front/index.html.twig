@@ -12,60 +12,14 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="text-light">
-                                <h2 class="text-medium no-margin text-colored">Votre confort</h2>
-                                <h2 class="text-lg no-margin">Notre priorité</h2>
+                                <h1 class="text-medium no-margin text-colored">Votre confort</h1>
+                                <h2 class="no-margin text-colored">Notre priorité</h2>
                             </div>
                         </div>
                         <div class="col-lg-5">
-                            <div id="book">
-                                <form method="post" action="#">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Check in</label>
-                                                <div class="input-group">
-                                                    <input name="fromDate" class="form-control" type="text">
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar"></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Check out</label>
-                                                <div class="input-group">
-                                                    <input name="fromDate" class="form-control" type="text">
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-calendar"></i></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label>Room type</label>
-                                                <select class="form-control" name="room_type" id="room_type">
-                                                    <option value="">Select room type</option>
-
-                                                    <option value="Single Room">Single Room</option>
-
-                                                    <option value="Double Room">Double Room</option>
-
-                                                    <option value="King double Room">King double Room</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <button class="btn btn-colored float-right">Vérifier les disponibilités</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <div class="col-lg-12">
+                                    <a href="{{ path('rooms') }}" class="btn btn-lg btn-colored float-right">Voir les chambres</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,6 +31,12 @@
     <!-- ROOMS -->
     <section>
         <div class="container">
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-info">
+                    <strong>Info!</strong> {{ message }}.
+                </div>
+            {% endfor %}
+
             <div class="text-center m-b-40">
                 <h2 class="text-medium m-t-0">Hotel Rooms</h2>
                 <div class="seperator"><i class="fa fa-dot-circle-o"></i></div>
@@ -87,7 +47,7 @@
                     <div class="col-lg-4">
                         <div class="room">
                             <div class="room-image">
-                                <img src="homepages/hotel/images/rooms/4.jpg" alt="#">
+                                <img src="{{ 'images/rooms/'~room.image }}" alt="{ room.name }}">
                                 <div class="room-title">{{ room.name }}</div>
                             </div>
                             <div class="room-details">
@@ -100,6 +60,10 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger w-100">
+                        <strong>Attention!</strong> Toutes les chambres sont occupées
                     </div>
                 {% endfor %}
 

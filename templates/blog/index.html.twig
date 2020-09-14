@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <section id="page-title">
+        <div class="container">
+            <div class="page-title">
+                <h1>Blog</h1>
+                <span>Decouvrez nos dernières publications</span>
+            </div>
+            <div class="breadcrumb">
+            </div>
+        </div>
+    </section>
+<section id="page-content">
+    <div class="container">
+        <!-- Blog -->
+        <div id="blog" class="grid-layout post-2-columns m-b-30" data-item="post-item">
+            <!-- Post item-->
+            {% for billet in billets %}
+                <div class="post-item border">
+                    <div class="post-item-wrap">
+                        <div class="post-image"> <a href="{{ path('blog-detail',{'id':billet.id, 'slug':billet.slug})}}"> <img alt="{{ billet.title }}" src="images/blog/{{ billet.image }}"> </a> </div>
+                        <div class="post-item-description"> <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ billet.createdAt|date("m/d/Y") }}</span> <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>
+                            <h2><a href="{{ path('blog-detail',{'id':billet.id, 'slug':billet.slug})}}">{{ billet.title}} </a></h2>
+                            <p>{{ billet.contenu|raw}}</p>
+                            <a href="{{ path('blog-detail',{'id':billet.id, 'slug':billet.slug})}}" class="item-link">Read More <i class="fa fa-blog"></i></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+{% endblock %}

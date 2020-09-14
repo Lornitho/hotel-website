@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <section id="page-title">
+        <div class="container">
+            <div class="page-title">
+                <h1>Blog</h1>
+                <span>{{billet.title}}</span>
+            </div>
+            <div class="breadcrumb">
+            </div>
+        </div>
+    </section>
+    <section id="page-content" class="sidebar-right">
+        <div class="container">
+            <div class="row">
+                <!-- content -->
+                <div class="content col-lg-12">
+                    <!-- Blog -->
+                    <div id="blog" class="single-post">
+                        <!-- Post single item-->
+                        <div class="post-item">
+                            <div class="post-item-wrap">
+                                <div class="post-image">
+                                        <img alt="{{ billet.title }}" src="../images/blog/{{ billet.image }}">
+
+                                </div>
+                                <div class="post-item-description">
+                                    <h2>{{ billet.title }}</h2>
+                                    <div class="post-meta">
+                                        <span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{ billet.createdAt|date("m/d/Y") }}</span>
+                                    </div>
+                                    <p>{{ billet.contenu|raw }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: Post single item-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

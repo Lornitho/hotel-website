@@ -14,4 +14,39 @@
             </div>
         </div>
     </section>
+    <section>
+        <div class="container">
+            <div class="text-center m-b-40">
+                <h2 class="text-medium m-t-0">Hotel Rooms</h2>
+                <div class="seperator"><i class="fa fa-dot-circle-o"></i></div>
+                <p class="lead">Mhôtel est un hôtel de vacances paisible et bien équipé. Grâce à la situation favorable à proximité de la plage, des bois et du centre du village, c'est un hôtel idéal, où vous vous sentirez certainement chez vous.</p>
+            </div>
+            <div class="row">
+                {% for room in rooms  %}
+                    <div class="col-lg-4">
+                        <div class="room">
+                            <div class="room-image">
+                                <img src="{{ 'images/rooms/'~room.image }}" alt="{ room.name }}">
+                                <div class="room-title">{{ room.name }}</div>
+                            </div>
+                            <div class="room-details">
+                                <p>{{ room.description }}</p>
+                                <div class="float-left">
+                                    <h4>{{ room.price }}$<small>/ Day</small></h4>
+                                </div>
+                                <div class="float-right">
+                                    <a href="{{ path('room_detail',{'id':room.id}) }}" class="btn btn-colored">Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        <div class="alert alert-danger w-100">
+                            <strong>Attention!</strong> Toutes les chambres sont occupées
+                        </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
 {% endblock %}

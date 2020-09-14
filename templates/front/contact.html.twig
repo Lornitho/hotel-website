@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+    <section id="page-title">
+        <div class="container">
+            <div class="page-title">
+                <h1>Contact</h1>
+                <span>Envoyez nous un message en utilisant le formulaire de contact ci-dessous</span>
+            </div>
+            <div class="breadcrumb">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="text-uppercase">Get In Touch</h3>
+                    <p>The most happiest time of the day!. Suspendisse condimentum porttitor cursus. Duis nec nulla turpis. Nulla lacinia laoreet odio, non lacinia nisl malesuada vel. Aenean malesuada fermentum bibendum.</p>
+                    <div class="m-t-30">
+                        {{ form_start(form, { 'attr': {'class': ''}} ) }}
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Nom</label>
+                                    {{ form_widget(form.name, { 'attr': {'class': 'form-control required name'} } ) }}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">Email</label>
+                                    {{ form_widget(form.email, { 'attr': {'class': 'form-control required name'} } ) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="subject">Sujet</label>
+                                    {{ form_widget(form.subject, { 'attr': {'class': 'form-control required name'} } ) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                {{ form_widget(form.message, { 'attr': {'class': 'form-control required name'} } ) }}
+                            </div>
+                             <input type="submit" value="Envoyez" class="btn">
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="text-uppercase">Address & Map</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <address>
+                                <strong>Polo, Inc.</strong><br>
+                                795 Folsom Ave, Suite 600<br>
+                                San Francisco, CA 94107<br>
+                                <abbr title="Phone">P:</h4> (123) 456-7890
+                            </address>
+                        </div>
+                        <div class="col-lg-6">
+                            <address>
+                                <strong>Polo Office</strong><br>
+                                795 Folsom Ave, Suite 600<br>
+                                San Francisco, CA 94107<br>
+                                <abbr title="Phone">P:</h4> (123) 456-7890
+                            </address>
+                        </div>
+                    </div>
+                    <!-- Google Map -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d168065.25837599044!2d7.681223722078207!3d48.83876364451655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796ead8d20fa469%3A0xa655202112adb97a!2s67500%20Haguenau!5e0!3m2!1sfr!2sfr!4v1599314729511!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <!-- end: Google Map -->
+                </div>
+            </div>
+        </div>
+    </section> <!-- end: Content -->
+{% endblock %}

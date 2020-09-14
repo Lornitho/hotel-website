@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Hotel{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Hotel">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Stylesheets & Fonts -->
+    <link href="{{ asset('css/plugins.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <!-- Template color -->
+    <link href="{{ asset('css/color-variations/red.css') }}" rel="stylesheet" type="text/css" media="screen">
+    <!-- CSS HOTEL STYLE -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('homepages/hotel/css/hotel-style.css') }}" media="screen" />
+    {% block stylesheets %}{% endblock %}
+
+</head>
+<body>
+<div class="body-inner">
+    {% include 'partials/header.html.twig' %}
+    {% block body %}{% endblock %}
+    {% include 'partials/footer.html.twig' %}
+</div>
+
+
+
+<!-- Scroll top -->
+<a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
+<!--Plugins-->
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/plugins.js') }}"></script>
+
+<!--Template functions-->
+<script src="{{ asset('js/functions.js') }}"></script>
+
+<!--Google Maps files-->
+<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?key=AIzaSyAZIus-_huNW25Jl7RPmHgoGZjD5udgBMI'></script>
+<script type="text/javascript" src="{{ asset('plugins/gmap3/gmap3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('plugins/gmap3/map-styles.js') }}"></script>
+
+
+<!--VEGAS SLIDESHOW-->
+<link href="{{ asset('plugins/vegas/vegas.min.css') }}" rel="stylesheet">
+<script src="{{ asset('plugins/vegas/vegas.min.js') }}"></script>
+
+<script>
+    $(function () {
+        $("#vegas-slideshow").vegas({
+            delay: 4000,
+            transition: 'fade2',
+            transitionDuration: 1000,
+            slides: [{
+                src: "homepages/hotel/images/3.jpg"
+            }, {
+                src: "homepages/hotel/images/4.jpg"
+            }]
+        });
+    });
+</script>
+
+<!-- Date & Time Picker -->
+<link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}" type="text/css" />
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+
+<!-- Date Range Picker trigger code -->
+<script>
+    $(function () {
+        $('.yes').daterangepicker({
+            singleDatePicker: true,
+            /* showDropdowns: true,*/
+            locale: {
+                format: 'YYYY-MM-DD'
+            }
+        });
+    });
+</script>
+{% block javascripts %}{% endblock %}
+</body>
 </html>

@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FrontController!{% endblock %}
+
+{% block body %}
+
+    <section id="page-title">
+        <div class="container">
+            <div class="page-title">
+                <h1>A propos</h1>
+                <span>Nos services</span>
+            </div>
+            <div class="breadcrumb">
+            </div>
+        </div>
+    </section>
+
+    <div class="dining-area dining-padding-top">
+        <!-- Single Left img -->
+        <div class="container">
+            <div class="archivment-front">
+                <img src="images/about/banner_i.jpg" alt="">
+            </div>
+        </div>
+                <div class="row justify-content-end">
+                    <div class="col-lg-8 col-md-8">
+                        <div class="dining-caption">
+                            <span>Notre restaurant</span>
+                            <h3>Restauration et boissons</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            <br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                <br>veniam, quis nostrud.
+                                <br>Lorem ipsum dolor sit amet, adipisiciconsectetur adipisicing elit, sed do eiusmod
+                                <br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                <br>tempor incididunt ut laboreveniam, quis nostruddipisicing elit, sed do eiusmod.
+                                <br>Lorem ipsum dolor sit amet, adipisiciconsectetur adipisicing elit, sed do eiusmod
+                                <br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                <br>tempor incididunt ut laboreveniam, quis nostrud.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="container">
+        <div class="text-center m-b-40">
+            <h1> Méteo sur Paris</h1>
+            <h2><i class="'fa fa-map-maker"></i><span id ="location"></span></h2>
+            <h4>Temperature : <span id ="temp"></span><sup>0</sup>C</h4>
+            <h4>Humidité : <span id ="humidity"></span>%</h4>
+            <h4><span id ="weather"></span></h4>
+            <button onclick="window.location.reload();" class="refresh">Actualiser<i class="fa fa-refresh"></i></button>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        let url="http://api.openweathermap.org/data/2.5/weather?q=Paris&lang=fr&units=metric&APPID=ccbe9144a41d418f4669c10f4d78b8d7";
+        fetch(url).then(function (data){
+            data.json().then(function (res){
+                document.getElementById('temp').innerHTML=res.main.temp;
+                document.getElementById('humidity').innerHTML=res.main.humidity;
+                document.getElementById('weather').innerHTML=res.weather[0].description;
+                //document.getElementById('icon').src="http://openweathermap.org/img/wn/10d@2x.png"+res.weather[0].icon+"png";
+
+
+            })
+        })
+
+    </script>
+{% endblock %}

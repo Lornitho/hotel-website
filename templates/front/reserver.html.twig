@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reserver{% endblock %}
+
+{% block body %}
+
+    <section class="fullscreen">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 center p-50 background-white ">
+                    <h3>Reservation</h3>
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4>{{ room.name }}</h4>
+                                <p>{{ room.description }}</p>
+                                <p>{{ room.price }} Euro</p>
+                            </div>
+                            <div class="col-6">
+                                <img src="{{'../images/rooms/'~room.image }}" alt="{{ room.name }}" class="w-100">
+                            </div>
+                        </div>
+
+                    </div>
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <p>Date d'arrivée</p>
+                            <p>{{ form_widget(form.startAt, { 'attr': {'class': 'form_control yes w-100'} }) }}</p>
+                        </div>
+                        <div class="form-group col-6">
+                            <p>Date de départ</p>
+                            <p>{{ form_widget(form.endAt, { 'attr': {'class': 'form_control yes w-100'} }) }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-12">
+                            <p>Nombre de personne(s)</p>
+                            <p>{{ form_widget(form.nbpersonne, { 'attr': {'class': 'w-100'} }) }}</p>
+                        </div>
+                    </div><div class="row">
+                        <div class="form-group col-12">
+                            <p>Commentaire</p>
+                            <p>{{ form_widget(form.comment, { 'attr': {'class': 'w-100'} }) }}</p>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <button type="submit" class="btn">Reserver</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
